@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/Python/!svn/ver/4/trunk/dot/dot
+END
+wsgi.py
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/Python/!svn/ver/4/trunk/dot/dot/wsgi.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/Python/!svn/ver/4/trunk/dot/dot/__init__.py
+END
+settings.py
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/Python/!svn/ver/4/trunk/dot/dot/settings.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/Python/!svn/ver/4/trunk/dot/dot/urls.py
+END
