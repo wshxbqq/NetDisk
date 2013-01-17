@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../Libs/JqueryMobile/jquery.mobile-1.2.0.js" />
 /// <reference path="../../Libs/Jquery/jquery.js" />
 /// <reference path="../Common.js" />
-
+/// imgPage
 (function () {
     var c = window.Common;
 
