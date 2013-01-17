@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="PingShu.Entity.ArtType,PingShu.Entity" table="ArtType" lazy = "false">
+
+		<id name="ArtTypeId" column="ArtType_ID" type="Int32" unsaved-value="0">
+			<generator class="native"/>
+		</id>
+		<bag name="ArtistList" inverse="true" lazy="true" >
+			<key column="Type_ID" />
+			<one-to-many class="PingShu.Entity.Artist,PingShu.Entity" />
+		</bag>
+		<property column="ArtType_Name" type="String" name="ArtTypeName" length="100" />
+		
+	</class>
+</hibernate-mapping>

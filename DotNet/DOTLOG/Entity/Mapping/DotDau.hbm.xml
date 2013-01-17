@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="DotLog.Entity.DotDau,DotLog.Entity" table="DotDau" lazy = "false">
+
+		<id name="Dauid" column="DauID" type="Int32" unsaved-value="0">
+			<generator class="native"/>
+		</id>
+		<property column="DauAppId" type="String" name="DauAppId" length="100" />
+		<property column="DauIP" type="String" name="Dauip" length="100" />
+		<property column="DauTime" type="DateTime" name="DauTime" />
+		<property column="DauUUID" type="String" name="Dauuuid" length="100" />
+		<property column="DauAgent" type="String" name="DauAgent" length="1073741823" />
+		
+	</class>
+</hibernate-mapping>

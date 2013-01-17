@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="XiaoHua.Entity.TypeChild,XiaoHua.Entity" table="TypeChild" lazy = "false">
+
+		<id name="TypeChildid" column="TypeChildID" type="Int32" unsaved-value="0">
+			<generator class="native"/>
+		</id>
+		<bag name="ArtcileList" inverse="true" lazy="true" >
+			<key column="TypeChildID" />
+			<one-to-many class="XiaoHua.Entity.Artcile,XiaoHua.Entity" />
+		</bag>
+		<many-to-one name="TypeRootid" column="TypeRootID" class="XiaoHua.Entity.TypeRoot,XiaoHua.Entity" />
+		<property column="TypeName" type="String" name="TypeName" length="100" />
+		<property column="Extent" type="String" name="Extent" length="1073741823" />
+		
+	</class>
+</hibernate-mapping>

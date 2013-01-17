@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="XiaoHua.Entity.TypeRoot,XiaoHua.Entity" table="TypeRoot" lazy = "false">
+
+		<id name="TypeRootid" column="TypeRootID" type="Int32" unsaved-value="0">
+			<generator class="native"/>
+		</id>
+		<bag name="TypeChildList" inverse="true" lazy="true" >
+			<key column="TypeRootID" />
+			<one-to-many class="XiaoHua.Entity.TypeChild,XiaoHua.Entity" />
+		</bag>
+		<property column="TypeRootName" type="String" name="TypeRootName" length="100" />
+		
+	</class>
+</hibernate-mapping>

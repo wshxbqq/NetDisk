@@ -1,0 +1,41 @@
+﻿body { margin:0px; padding:0px}
+.wrapper{ width:960px; height:640px; position:relative; border:1px #000 solid;-webkit-user-select:none}
+img{ width:100%; height:100%}
+
+/*
+底部导航
+*/
+.bottom_bar{ position:absolute; bottom:0px; width:100%; height: 150px; background:#eee; }
+.normalSkill{   width:130px; height:130px; float: left;  margin-left:20px; margin-top:10px}
+.bigSkill{border:1px #ccc solid ; width:130px; height:130px; float: left;  margin-left:30px;margin-top:10px }
+#normalSkill_1{ margin-left:100px}
+
+/*
+技能 容器
+*/
+
+.skillContainer{ width:100%; height:100%;  }
+.skillTable_1 td{ position:relative;
+    height: 128px;
+    width: 128px;
+    margin-left:10px
+}
+.skillTable_1 td div{ border-radius:10px}
+.skillIcoMask{ position:absolute; width:100%; height:100%; background:#000; opacity:0.5}
+.unLockDiv{text-align:center; color:White;  font-weight:bolder; bottom:10px; font-size:20px; position:absolute; margin-left:20px }
+
+
+/*
+LOG
+*/
+.leftLog{ position:absolute; width:200px; height:400px;  left:0px; border:1px #ccc solid; bottom:150px; overflow:hidden}
+.a_log{ background:#eeefe8; margin-top:5px; margin-bottom:5px}
+.leftLogName{ color:Red; font-weight:bold; margin-right:20px}
+.leftLogDian{ font-weight:bold;}
+
+
+/*
+debuffPanel
+*/
+.debuffPanel{ width:500px; height:50px; position:absolute; top:80px;  right:20px;  text-align:right;}
+.buffPanel{ width:500px; height:50px; position:absolute;  bottom:200px;  right:20px;  text-align:right; background:#888}
