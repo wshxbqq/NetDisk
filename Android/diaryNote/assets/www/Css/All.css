@@ -1,0 +1,8 @@
+﻿body{ margin:0px; padding:0px;-webkit-user-select: none;}
+.width80{ width:80%;}
+.center{margin:0px auto 0px auto }
+.textCenter{ text-align:center}
+.H_align{ position:absolute; top:50%; left:50%}
+img{ width:100%}
+.roundBorder{ border-radius:10px}
+.delBtnRightTop{ position:absolute; right:0px; top:-20px; width:10px; height:10px}
