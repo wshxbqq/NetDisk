@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+   <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height,initial-scale=0.5, maximum-scale=0.5">
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="Lib/CssLib.css" rel="stylesheet" type="text/css" />
+
+    
+    <script src="Lib/jquery.js" type="text/javascript"></script>
+    <script src="Javascript/RunTime.js" type="text/javascript"></script>
+
+
+    <script src="Config/Config.js" type="text/javascript"></script>
+    <script src="Config/Config_Skill.js" type="text/javascript"></script>
+    <script src="Config/Config_ICO.js" type="text/javascript"></script>
+    <script src="Javascript/Tool/Tool.js" type="text/javascript"></script>
+
+    <script src="Javascript/model.js" type="text/javascript"></script>
+    <script src="Javascript/Logic/Bingo.js" type="text/javascript"></script>
+    <script src="Javascript/Model/Container.js" type="text/javascript"></script>
+    <script src="Javascript/Model/Type.js" type="text/javascript"></script>
+    <script src="Javascript/Model/ICO.js" type="text/javascript"></script>
+    <script src="Javascript/Model/Row.js" type="text/javascript"></script>
+
+
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    document.addEventListener("touchmove", function (e) {
+        e.preventDefault();
+    });
+    var m = window.Model;
+    var global = window.GLOBAL_CONFIG;
+    var RT = window.RunTime;
+    var t = window.Common;
+    var container = new m.Container();
+    container.init();
+    document.body.appendChild(container.DOM);
+    var containerOffSet = $(".container").position();
+    RT.containerTop = containerOffSet.top;
+    RT.containerLeft = containerOffSet.left;
+</script>
+</body>
+</html>
