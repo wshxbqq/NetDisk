@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\bin\Debug\Entity.dll
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\bin\Debug\Entity.pdb
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\obj\Debug\Entity.dll
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\obj\Debug\Entity.pdb
+D:\XiaoHua\Entity\obj\Debug\ResolveAssemblyReference.cache
+D:\XiaoHua\Entity\bin\Debug\XiaoHua.Entity.dll
+D:\XiaoHua\Entity\bin\Debug\XiaoHua.Entity.pdb
+D:\XiaoHua\Entity\obj\Debug\XiaoHua.Entity.dll
+D:\XiaoHua\Entity\obj\Debug\XiaoHua.Entity.pdb
