@@ -28,7 +28,7 @@ def handshakeStr(conn):
     return response
 
 
-HOST = '10.130.137.72'   # Symbolic name meaning all available interfaces
+HOST = '192.168.1.103'   # Symbolic name meaning all available interfaces
 PORT = 8888 # Arbitrary non-privileged port
  
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
