@@ -1,0 +1,15 @@
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\bin\Debug\Entity.dll
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\bin\Debug\Entity.pdb
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\obj\Debug\Entity.dll
+C:\Users\Administrator\Desktop\zxcvv\Nhibernate\Entity\obj\Debug\Entity.pdb
+C:\Nhibernate\Entity\bin\Debug\DotLog.Entity.dll
+C:\Nhibernate\Entity\bin\Debug\DotLog.Entity.pdb
+C:\Nhibernate\Entity\obj\Debug\ResolveAssemblyReference.cache
+C:\Nhibernate\Entity\obj\Debug\DotLog.Entity.dll
+C:\Nhibernate\Entity\obj\Debug\DotLog.Entity.pdb
+D:\DOTLOG\Entity\bin\Debug\DotLog.Entity.dll
+D:\DOTLOG\Entity\bin\Debug\DotLog.Entity.pdb
+D:\DOTLOG\Entity\obj\Debug\ResolveAssemblyReference.cache
+D:\DOTLOG\Entity\obj\Debug\DotLog.Entity.dll
+D:\DOTLOG\Entity\obj\Debug\DotLog.Entity.pdb

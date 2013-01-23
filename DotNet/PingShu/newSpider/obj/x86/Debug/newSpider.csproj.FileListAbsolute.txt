@@ -1,0 +1,17 @@
+D:\PingShu\newSpider\bin\Debug\newSpider.exe
+D:\PingShu\newSpider\bin\Debug\newSpider.pdb
+D:\PingShu\newSpider\bin\Debug\PingShu.Entity.dll
+D:\PingShu\newSpider\bin\Debug\PingShu.Entity.pdb
+D:\PingShu\newSpider\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\PingShu\newSpider\obj\x86\Debug\newSpider.exe
+D:\PingShu\newSpider\obj\x86\Debug\newSpider.pdb
+D:\PingShu\newSpider\bin\Debug\newSpider.exe.config
+D:\PingShu\newSpider\bin\Debug\Gomye.NHibernate.DataAccess.dll
+D:\PingShu\newSpider\bin\Debug\PingShu.DAL.dll
+D:\PingShu\newSpider\bin\Debug\NHibernate.dll
+D:\PingShu\newSpider\bin\Debug\Iesi.Collections.dll
+D:\PingShu\newSpider\bin\Debug\Antlr3.Runtime.dll
+D:\PingShu\newSpider\bin\Debug\log4net.dll
+D:\PingShu\newSpider\bin\Debug\PingShu.DAL.pdb
+D:\PingShu\newSpider\bin\Debug\NHibernate.xml
+D:\PingShu\newSpider\bin\Debug\Iesi.Collections.xml
