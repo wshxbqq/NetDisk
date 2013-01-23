@@ -1,4 +1,1 @@
-# shell.sh
-
-sudo vi hello.sh
-
+#!/bin/sh
