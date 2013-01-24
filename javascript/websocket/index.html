@@ -1,20 +1,68 @@
 ﻿<html>
 <head>
     <title></title>
+    <style>
+
+        #wall div
+        {   
+              width:300px; height:20px;  border:1px #ccc solid; margin:10px; float:left; font-size: 10px ; background-color:#eeefe8
+        }
+    </style>
 </head>
 <body>
 <input id="text"  type="text"/>
 <button id="btn">发送</button>
  <div id="wall"></div>
-<script src="http://192.168.1.103:8888/socket.io/socket.io.js"></script>
+<script src="socket.io.js"></script>
 
     <script>
         var btn = document.getElementById("btn");
         var text = document.getElementById("text");
         var wall = document.getElementById("wall");
+        var list = [];
+        function check(id) {
+            var result=false;
+            for(var i in list){
+                var _id = list[i];
+                if (_id.id==id) {
+                    result = true;
+                }
+            }
+            return result;
+        }
+
+        function getById(id) {
+            var result;
+            for (var i in list) {
+                var _id = list[i];
+                if (_id.id == id) {
+                    result = _id;
+                }
+            }
+            return result;
+        }
 
         function toWall(txt) {
-            wall.innerHTML += "</br>" + txt
+            var flag = check(txt);
+            if (flag) {
+                var d = getById(txt).dom;
+                var c = window.parseInt(d.getElementsByTagName("span")[0].innerHTML);
+                c++;
+                d.getElementsByTagName("span")[0].innerHTML = c;
+            } else {
+                obj = {};
+                obj.id = txt;
+                obj.dom = document.createElement("div");
+
+                var a = document.createElement("a");
+                a.innerHTML = txt + ":   ";
+                var span = document.createElement("span");
+                span.innerHTML = 0;
+                obj.dom.appendChild(a);
+                obj.dom.appendChild(span);
+                wall.appendChild(obj.dom);
+                list.push(obj);
+            }
         }
 
         function sentText() {
@@ -32,16 +80,27 @@
         window.socket  = io.connect('http://192.168.1.103:8888');
 
         socket.on('connect', function () {
-            alert('connected');
+            toWall("connect!");
             socket.on('message', function (msg) {
                 toWall(msg);
             });
         });
 
         socket.on('disconnect', function () {
-            alert('disconnected');
+           toWall("dis_connect!");
         });
+
     </script>
+
+
+<script type="text/javascript">
+var h=500+ window.parseInt(Math.random()*500);
+    window.setInterval(function(){
+        var h= window.parseInt(Math.random()*100);
+        window.socket.send(h)
+    },h)
+
+</script>
 
 </body>
 </html>
