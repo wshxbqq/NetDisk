@@ -1,1 +1,2 @@
-#happy git hub
+#!/bin/sh
+date > date.txt
