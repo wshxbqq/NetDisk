@@ -46,8 +46,6 @@ io.sockets.on('connection', function (socket) {
                 grp.b.send("right");
               break;
       }
-
-
   });
   socket.on('disconnect', function (event) {
 
