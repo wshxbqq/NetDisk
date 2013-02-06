@@ -21,7 +21,7 @@ var ansy = {};
     };
 
     ansy.start = function (x,y) {
-
+        $(".login").hide();
         ballObj._x = 0;
         ballObj._y = 0;
 
@@ -44,12 +44,21 @@ var ansy = {};
             ansy.stop();
         } 
 
-        mark_he++;
+     //   mark_he++;
 
         //send();
         
         return result;
     };
+
+    ansy.newGame = function () {
+        window.socket.emit("newGame");
+
+    };
+    ansy.updateB = function () {
+
+        window.socket.emit("updateB", { "data": MY.bObj.y });
+    }
     ansy.stop = function () {
         ballObj.x = 460;
         ballObj.y = 300;
@@ -89,13 +98,28 @@ var ansy = {};
         }
     };
 
+    ansy.openRoomWith = function (socketId) {
+        window.socket.emit("createRoom", { "data": socketId });
+    };
+    ansy.changeBall = function () {
+        window.socket.emit("ballChange", ballObj);
+    }
+
     ansy.listen = function () {
         bg.bind("mousemove touchmove", ansy.move);
+        $(".playerList").bind("click", function (e) {
+            
+            var div = e.target;
+            if (!$(div).hasClass("palyer")) {
+                return;
+            }
+            var id = div.innerHTML.split(":")[1];
+            ansy.openRoomWith(id);
+        });
     };
 
     ansy.exit = function () {
         $(".jalert").show();
     };
 
-    ansy.who("right");
     ansy.listen();

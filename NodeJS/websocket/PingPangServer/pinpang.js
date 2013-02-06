@@ -27,28 +27,110 @@ io.set('transports', [
   , 'jsonp-polling'
 ]);
 
-var userList = [];
-var groupList=[];
+var roomList=[];
 
 io.sockets.on('connection', function (socket) {
-    var data = getData();
-    socket.send(data);
-    userList.push(socket);
-   
+    socket.join("free");
     socket.on('message', function (event) {
-        socket.send(event);
-      switch (event) {
-          case "createGroup":
-                var grp=  createGroup(socket.id, event);
-                grp.a.send("left");
-                grp.b.send("right");
-              break;
-      }
-  });
+
+    });
+
+    socket.on('createRoom', function (data) {
+        console.log(data.data);
+        var remoteSocket = getSocketById(data.data);
+        var roomID = createRom(socket, remoteSocket);
+        var room = getSocketFromRoomId(roomID);
+        
+        for (var i in room) {
+            var s = room[i];
+            s.emit("start", {"data":s.p});
+        }
+        
+    });
+    socket.on('updateB', function (data) {
+        var room = getSocketFromRoomId(socket.roomID);
+        
+        for(var i in room){
+            var s = room[i];
+            if (s.id != socket.id) {
+                s.emit("updateB", { "data": data.data});
+            }
+        }
+    });
+    socket.on('ballChange', function (data) {
+        var room = getSocketFromRoomId(socket.roomID);
+        io.sockets.in(socket.roomID).emit('ballChange', { x: data.x, y: data.y, _x: data._x, _y: data._y, });
+    });
+
+    socket.on('newGame', function (data) {
+        var room = getSocketFromRoomId(socket.roomID);
+        io.sockets.in(socket.roomID).emit('newGame', { x: 460, y: 300, _x: -Math.random()-10, _y: Math.random()*4 });
+    });
+
+
+    socket.on('updateFreelayer', function () {
+        updateFreelayer();
+    });
   socket.on('disconnect', function (event) {
 
   });
 });
+
+
+
+
+
+//刷新 所有玩家的  空闲玩家列表
+function updateFreelayer() {
+    var freeSockets = getSocketFromRoomId("free");
+    for (var i in freeSockets) {
+
+        var currentSocket = freeSockets[i];
+        var currentArray = [];
+        var currenResult = { "data": currentArray };
+
+        for (var j in freeSockets) {
+            if (currentSocket.id != freeSockets[j].id) {
+                currentArray.push(freeSockets[j].id);
+            };
+        };
+        currentSocket.emit("updateFreelayer", currenResult);
+    };
+};
+
+
+function createRom(socket1, socket2) {
+    var roomID = "room_" + Math.random();
+    socket1.roomID = roomID;
+    socket2.roomID = roomID;
+    socket1.p = "left";
+    socket2.p = "right";
+
+    socket1.join(roomID);
+    socket2.join(roomID);
+    return roomID;
+}
+
+
+//更新 玩家的 房间
+function switchRoom(socket , room) {
+    
+}
+
+function getSocketFromRoomId(roomId) {
+    return io.sockets.clients(roomId)
+};
+
+function getSocketById(Id) {
+    var result;
+    for (var i in io.sockets.sockets) {
+        if (i == Id) {
+            result = io.sockets.sockets[i]
+        }
+    }
+    return result;
+};
+
 
 function getData() {
     var unGroup = getUnGroupPlayer();
@@ -84,29 +166,11 @@ function createGroup(id1, id2) {
         result = gObj;
         groupList.push(gObj);
     };
-
-
-
-
-
-
-
-
     return result;
 }
 
 
 
-
-function getSocketById(id) {
-    var result;
-    for (var i = 0; i < userList.length; i++) {
-        var innerSocket = userList[i];
-        if (id == innerSocket.id) {
-            result = innerSocket;
-        }
-    };
-};
 
 
 

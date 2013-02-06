@@ -7,6 +7,9 @@
     <title></title>
 </head>
 <body>
+	<script>
+	location.href="http://10.130.134.1:9999";
+	</script>
     <div class="bg">
         <div class="textContent">
 
@@ -19,7 +22,7 @@
         <div class="ball" style="top:300px; left:460px"></div>
 
 
-        <div class="login" style="display:none">
+        <div class="login">
             <div>状态：<span id="status" class="status">连接服务器中。。。</span></div>
             <div id="ip" class="ip" style="display:none">192.168.10.23</div>
              <hr />
@@ -36,7 +39,7 @@
          <div class="flag2">192.168.1.120--Nfsws2safdddef得分：<span id="mark_he">22</span></div>
 
 
-        <div class="jalert">
+        <div class="jalert" style="display:none">
             <div>对方已断开连接</div>
             <div> <button>关闭</button></div>
            
@@ -46,5 +49,7 @@
     <script src="js/jquery-1.9.0.js"></script>
     <script src="js/system.js"></script>
     <script src="js/player.js"></script>
+    <script src="js/dom.js"  charset="utf-8"></script>
+
 </body>
 </html>

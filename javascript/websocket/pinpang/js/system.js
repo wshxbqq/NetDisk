@@ -2,7 +2,7 @@
 var FRAME = 60;
 var FRAME_COUNT = 0;
 var SEND_FRAME = 30;
-var SERVER = "192.168.1.103:8888";
+var SERVER = "10.130.134.1:8888";
 var ID = null;
 
 var mark_me = 0;
@@ -31,8 +31,17 @@ var textContainer = $(".textContent");
 var ST = {};
 
 ST.nextFrame = function () {
-    ST.nextBallPosition();
+    var flag=ST.nextBallPosition();
     ansy.setBall();
+    if (flag) {
+        ansy.changeBall(Object);
+    };
+    if (!ansy.win()) {
+        ansy.newGame();
+    };
+    FRAME_COUNT++;
+    
+    ansy.updateB();
 };
 
 ST._inB1 = function () {
@@ -80,7 +89,41 @@ ST.nextBallPosition = function () {
 window.socket = io.connect(SERVER);
 
 socket.on('connect', function (connectMsg) {
-    console.log("success");
+    dom.changeReadyTip(1); //更换标题   已连接
+    socket.emit("updateFreelayer");
+
+
+    socket.on('updateFreelayer', function (data) {
+        dom.fillPlayerList(data.data);
+        console.log(data.data);
+    });
+    socket.on('updateB', function (data) {
+        HE.bObj.y = data.data;
+        console.log(data);
+    });
+    socket.on('newGame', function (data) {
+        ballObj.x = data.x;
+        ballObj.y = data.y;
+        ballObj._x = data._x;
+        ballObj._y = data._y;
+        ansy.start(ballObj._x, ballObj._y);
+    });
+    
+    socket.on('start', function (data) {
+        var p = data.data;
+        ansy.who(p);
+
+        ansy.newGame();
+        Timer.start();
+    });
+
+    socket.on('ballChange', function (data) {
+        ballObj.x = data.x;
+        ballObj.y = data.y;
+        ballObj._x = data._x;
+        ballObj._y= data._y;
+    });
+
     socket.on('message', function (msg) {
         console.log(msg);
         if (msg.y != undefined) {
@@ -117,7 +160,7 @@ socket.on('connect', function (connectMsg) {
   });
 
       socket.on('disconnect', function () {
-          toWall("dis_connect!");
+         // toWall("dis_connect!");
       });
 
 var Timer = {};
@@ -125,9 +168,6 @@ Timer.fn=function () {
     MY.b.css({ "top": MY.bObj.y + "px" });
     HE.b.css({ "top": HE.bObj.y + "px" });
     ST.nextFrame();
-    if (!ansy.win()) {
-        console.log(555);
-    }
 };
 Timer.start =function(){
     Timer.id=  window.setInterval(Timer.fn, 1000 / 60);
@@ -135,7 +175,6 @@ Timer.start =function(){
 Timer.stop =function(){
     window.clearInterval(Timer.id);
 }
-
 document.addEventListener("touchmove", function (e) {
     e.preventDefault();
 })
