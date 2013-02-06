@@ -1,6 +1,7 @@
 
 var ansy = {};
-    ansy.who = function (position) {
+ansy.who = function (position) {
+    $(".animation").removeClass("animation");
         if (position == "left") {
             MY.b = b1;
             MY.bObj=b1Obj;
@@ -18,8 +19,14 @@ var ansy = {};
             HE.bObj=b1Obj;
             HE.p = "left";
         }
+
+        $(HE.b).addClass("animation");
     };
 
+
+    ansy.showLogin = function () {
+        $(".login").show();
+    }
     ansy.start = function (x,y) {
         $(".login").hide();
         ballObj._x = 0;
@@ -36,35 +43,30 @@ var ansy = {};
         if (ballObj.x < 0 && MY.p == "left") {
             result = 0;
         };
-
         if (ballObj.x > 960 && MY.p == "right") {
             result = 0;
         };
         if (!result) {
             ansy.stop();
-        } 
-
-     //   mark_he++;
-
-        //send();
-        
+        }
         return result;
     };
 
     ansy.newGame = function () {
         window.socket.emit("newGame");
-
     };
-    ansy.updateB = function () {
 
+    ansy.updateB = function () {
         window.socket.emit("updateB", { "data": MY.bObj.y });
-    }
+    };
+
     ansy.stop = function () {
         ballObj.x = 460;
         ballObj.y = 300;
         ballObj._y = 0;
         ballObj._x = 0;
-    }
+    };
+
     ansy.setBall = function () {
         ball.css({"top":ballObj.y+"px","left":ballObj.x+"px"});
     };
@@ -98,25 +100,29 @@ var ansy = {};
         }
     };
 
+    ansy.playerList = function (e) {
+        var div = e.target;
+        if (!$(div).hasClass("palyer")) {
+            return;
+        }
+        var id = div.innerHTML.split(":")[1];
+        ansy.openRoomWith(id);
+    };
+
     ansy.openRoomWith = function (socketId) {
         window.socket.emit("createRoom", { "data": socketId });
     };
+
     ansy.changeBall = function () {
         window.socket.emit("ballChange", ballObj);
-    }
+    };
 
     ansy.listen = function () {
         bg.bind("mousemove touchmove", ansy.move);
-        $(".playerList").bind("click", function (e) {
-            
-            var div = e.target;
-            if (!$(div).hasClass("palyer")) {
-                return;
-            }
-            var id = div.innerHTML.split(":")[1];
-            ansy.openRoomWith(id);
-        });
+        $(".playerList").bind("click", ansy.playerList);
     };
+
+
 
     ansy.exit = function () {
         $(".jalert").show();

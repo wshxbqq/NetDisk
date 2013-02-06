@@ -40,8 +40,10 @@ ST.nextFrame = function () {
         ansy.newGame();
     };
     FRAME_COUNT++;
+    if (!(FRAME_COUNT%30)) {
+        ansy.updateB();
+    }
     
-    ansy.updateB();
 };
 
 ST._inB1 = function () {
@@ -122,6 +124,11 @@ socket.on('connect', function (connectMsg) {
         ballObj.y = data.y;
         ballObj._x = data._x;
         ballObj._y= data._y;
+    });
+
+    socket.on('enemyDie', function (data) {
+        ansy.showLogin();
+        Timer.stop();
     });
 
     socket.on('message', function (msg) {

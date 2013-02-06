@@ -31,22 +31,26 @@ var roomList=[];
 
 io.sockets.on('connection', function (socket) {
     socket.join("free");
+    socket.roomID = "free";
     socket.on('message', function (event) {
 
     });
 
     socket.on('createRoom', function (data) {
-        console.log(data.data);
         var remoteSocket = getSocketById(data.data);
         var roomID = createRom(socket, remoteSocket);
         var room = getSocketFromRoomId(roomID);
         
         for (var i in room) {
             var s = room[i];
-            s.emit("start", {"data":s.p});
-        }
+            s.emit("start", { "data": s.p });
+        };
+
+        updateFreelayer();
         
     });
+
+
     socket.on('updateB', function (data) {
         var room = getSocketFromRoomId(socket.roomID);
         
@@ -57,10 +61,13 @@ io.sockets.on('connection', function (socket) {
             }
         }
     });
+
+
     socket.on('ballChange', function (data) {
         var room = getSocketFromRoomId(socket.roomID);
         io.sockets.in(socket.roomID).emit('ballChange', { x: data.x, y: data.y, _x: data._x, _y: data._y, });
     });
+
 
     socket.on('newGame', function (data) {
         var room = getSocketFromRoomId(socket.roomID);
@@ -68,16 +75,39 @@ io.sockets.on('connection', function (socket) {
     });
 
 
+
     socket.on('updateFreelayer', function () {
         updateFreelayer();
     });
-  socket.on('disconnect', function (event) {
 
-  });
+
+
+
+    socket.on('disconnect', function (event) {
+       
+        var room = getSocketFromRoomId(socket.roomID);
+        for (var i in room) {
+            var s = room[i];
+            if (s.id != socket.id) {
+                switchRoom(s, "free");
+                s.emit("enemyDie", {});
+            }
+        };
+
+
+        socket.leave("free");
+        updateFreelayer();
+      });
 });
 
 
-
+function switchRoom(socket,room) {
+    if (socket.roomID) {
+        socket.leave(socket.roomID);
+        socket.join(room);
+        socket.roomID = room;
+    }
+}
 
 
 //刷新 所有玩家的  空闲玩家列表
@@ -108,14 +138,13 @@ function createRom(socket1, socket2) {
 
     socket1.join(roomID);
     socket2.join(roomID);
+    socket1.leave("free");
+    socket2.leave("free");
     return roomID;
 }
 
 
-//更新 玩家的 房间
-function switchRoom(socket , room) {
-    
-}
+
 
 function getSocketFromRoomId(roomId) {
     return io.sockets.clients(roomId)
