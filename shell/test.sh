@@ -1,2 +1,3 @@
-#!/bin/
-#测试用 shell脚本
+#! /bin/bash
+innerSH=`./happy.sh`
+echo "inner ${innerSH} with var" 
