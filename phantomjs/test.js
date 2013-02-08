@@ -1,6 +1,6 @@
 console.log('Loading a web page');
 var page = require('webpage').create();
-var url = 'http://flash.17173.com/flashfile/2013-01-23/20130123145727675.shtml';
+var url = 'http://www.youku.com/';
 page.open(url, function (status) {
     //Page is loaded!
     //phantom.exit();
