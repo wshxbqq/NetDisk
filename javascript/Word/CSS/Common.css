@@ -1,0 +1,24 @@
+﻿html,body {
+    margin:0px;
+    padding:0px;
+    height:100%;
+    width:100%;
+    background:#ccc;
+    -webkit-user-select:none;
+}
+.wraper
+{
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:100%;
+}
+a.btn_green,a.btn_yellow,a.btn_gray{ min-width:80px;margin:0 3px 0 3px;text-shadow:0px 1px 2px #1b2f0e;font-size:24px;padding:8px 24px 8px 24px;border-radius:10px;width:auto;display:inline-block;line-height:24px;}
+ a.btn_green{background:-webkit-gradient(linear, 0 0, 0 bottom, from(#82cf37), to(#2e8806));border:2px solid #23590e}
+ a.btn_yellow{background:-webkit-gradient(linear, 0 0, 0 bottom, from(#ffe000), to(#ff960b));border:2px solid #ca7316}
+ a.btn_gray{background:-webkit-gradient(linear, 0 0, 0 bottom, from(#ededed), to(#bababa));border:2px solid #777;color:#888;text-shadow:0px 1px 1px #fff;}
+a.btn_yellow_s{min-width:90px;text-shadow:0px 1px 1px #1b2f0e;font-size:16px;padding:5px 12px 5px 12px;border-radius:30px;width:auto;background:-webkit-gradient(linear, 0 0, 0 bottom, from(#ffe000), to(#ff960b));border:2px solid #d68224}
+a.btn_green_s{min-width:90px;text-shadow:0px 1px 1px #1b2f0e;font-size:16px;padding:5px 12px 5px 12px;border-radius:30px;width:auto;background:-webkit-gradient(linear, 0 0, 0 bottom, from(#82cf37), to(#2e8806));border:2px solid #23590e}
+a.btn_gray_s {min-width:90px;text-shadow:0px 1px 1px #fff;font-size:16px;padding:5px 12px 5px 12px;border-radius:30px;width:auto;background:-webkit-gradient(linear, 0 0, 0 bottom, from(#ededed), to(#bababa));border:2px solid #979797;color:#888;}
+span.coin{ background:url(../img/ico_coin.png) no-repeat;display:inline-block;height:25px;text-indent:30px;}
+span.cash{ background:url(../img/ico_cash.png) no-repeat;display:inline-block;height:25px;text-indent:35px;}
