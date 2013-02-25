@@ -8,8 +8,10 @@
     <link href="CSS/Panel.css" rel="stylesheet" />
     <link href="CSS/Ant.css" rel="stylesheet" />
     <link href="CSS/Player.css" rel="stylesheet" />
-    <script src="JS/Lib/jquery-1.7.2.js"></script>
-    <script src="JS/Panel/Panel.js"></script>
+    <link href="CSS/Tip.css" rel="stylesheet" />
+    <link href="CSS/Coin.css" rel="stylesheet" />
+
+
     <style>
        
        
@@ -18,58 +20,38 @@
 </head>
 <body>
     <div class="wraper" id="wraper">
-
-        <div class="ant1" style="top:50%;left:50%"></div>
-
-
-
-
-
-        <div class="player1">
-            <div class="bar1">
-               <div class="playerInnerImg"><img src="R/Img/Player/player1.png" /></div>
-               <div class="playerInnerDiv">0000</div>
-            </div>
-
-            <div class="bar2">
-                <div class="playerInnerDiv2"><span class="name">阿斯顿</span><span class="level">Lv.42</span></div>
-            </div>
-        </div>
-        <div class="player2">
-            <div class="bar1">
-               <div class="playerInnerDiv">0000</div>
-                <div class="playerInnerImg"><img src="R/Img/Player/player1.png" /></div>
-            </div>
-
-            <div class="bar2"  style="float: right;">
-                <div class="playerInnerDiv2" ><span class="name">阿斯顿</span><span class="level">Lv.42</span></div>
-            </div>
-
-        </div>
+       
         <div class="player3">
             <div class="bar2">
-                <div class="playerInnerDiv2"><span class="name">阿斯顿</span><span class="level">Lv.42</span></div>
+                <div class="playerInnerDiv2"><span class="name">得分：</span><span class="level">34556</span></div>
             </div>
             <div class="bar1">
                <div class="playerInnerImg"><img src="R/Img/Player/player1.png" /></div>
                <div class="playerInnerDiv">0000</div>
             </div>
         </div>
-        <div class="player4">
-             <div class="bar2" style="float:right">
-                <div class="playerInnerDiv2" ><span class="name">阿斯顿</span><span class="level">Lv.42</span></div>
+        <div class="TipContainer">
+            <div class="TipInner">
+               <div id="TipText" class="TipText"> asdasd的撒旦撒旦vasdasd的撒旦撒旦vasdasd的撒旦撒旦vasdasd的撒旦撒旦vasdasd的撒旦撒旦v<br /></div>
             </div>
-             <div class="bar1" style="clear:both">
-               <div class="playerInnerDiv">0000</div>
-                <div class="playerInnerImg"><img src="R/Img/Player/player1.png" /></div>
-            </div>
-           
         </div>
-
     </div>
+        <script src="JS/Lib/jquery-1.7.2.js"></script>
+    <script src="JS/Lib/Dic.js"></script>
+    <script src="JS/Panel/Panel.js"></script>
+    <script src="JS/Lib/Common.js"></script>
+    <script src="JS/Lib/Ants.js"></script>
+    <script src="JS/Lib/Tip.js"></script>
+    <script src="JS/Lib/Coin.js"></script>
+    <script src="JS/Lib/Player.js"></script>
       <script>
-
- 
+          window.setInterval(function () {
+              var a = new window.Ant();
+              a.init();
+                a.render();
+              //Coin.addCoin(500, 50)
+          }, 3000);
+         
       </script>
 </body>
 </html>

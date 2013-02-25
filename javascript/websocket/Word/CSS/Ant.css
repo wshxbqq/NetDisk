@@ -1,8 +1,17 @@
-﻿.ant1
+﻿.Ant_1
 {
     background:url('../R/Img/Ants/ant1.png');
      width:100px;
      height:50px;
      position:absolute;
+     -webkit-transition-property:top,left;
+     -webkit-transition-duration:8s;
+     -webkit-transition-timing-function:linear;
+     text-align:center;
+     color:#ff6a00;
+     font-size:20px;
+     font-weight:bold;
+     padding-top:10px;
 
 }
+
