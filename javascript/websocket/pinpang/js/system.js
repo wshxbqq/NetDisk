@@ -2,7 +2,7 @@
 var FRAME = 60;
 var FRAME_COUNT = 0;
 var SEND_FRAME = 30;
-var SERVER = "10.130.134.1:8888";
+var SERVER = "10.130.134.0:8888";
 var ID = null;
 
 var mark_me = 0;
