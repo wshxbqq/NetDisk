@@ -7,8 +7,7 @@ then
 else
 	echo "NO"
 fi
-
-
+if()P{}
 num=1
 
 $num=[ $num + 1 ]
