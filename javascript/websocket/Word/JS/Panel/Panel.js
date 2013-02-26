@@ -27,37 +27,7 @@
     ' </div>                                                                                       '
     ].join("");
 
-    P.wellComeHTML = [                                                                                    
-    '<div class="panelContainer">                                                                       ',
-    '       <div class="panelBg">                                                                       ',
-    '           <div class="panelInner">                                                                ',
-    '               <br />                                                                              ',
-    '               <div></div>                                                                         ',
-    '               <table>                                                                             ',
-    '                   <tr>                                                                            ',
-    '                       <td class="panelTdName">欢迎你:</td>                                        ',
-    '                       <td><span class="userSpan" id="userNickName">{name}</span></td>           ',
-    '                   </tr>                                                                           ',
-    '                                                                                                   ',
-    '                   <tr>                                                                            ',
-    '                       <td class="panelTdName">等级:</td>                                          ',
-    '                       <td><span class="userSpan" id="level">{level}</span></td>                        ',
-    '                   </tr>                                                                           ',
-    '                                                                                                   ',
-    '                   <tr>                                                                            ',
-    '                       <td class="panelTdName">分数:</td>                                          ',
-    '                       <td><span class="userSpan" id="mark">{mark}</span></td>                       ',
-    '                   </tr>                                                                           ',
-    '               </table>                                                                            ',
-    '               <br />                                                                              ',
-    '                                                                                                   ',
-    '               <div class="submitBtnLoginDiv">                                                     ',
-    '                   <a class="btn_green submitBtnLogin" style="line-height:50px;" id="submitBtnWellcome">确  定</a>            ',
-    '               </div>                                                                              ',
-    '           </div>                                                                                  ',
-    '       </div>                                                                                      ',
-    '   </div>                                                                                          '
-    ].join("");
+ 
 
     P.showLogin = function () {
         $(".panelContainer").remove();

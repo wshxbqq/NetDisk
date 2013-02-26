@@ -17,7 +17,7 @@
         Tip.currentWordId = wordObj.id;
         Tip.currentWord = wordObj;
         $("#TipText").animate({ "top": "100px" }, 500, function () {
-            $(this).html(wordObj.word)
+            $(this).html(wordObj.explain)
                 .attr("word_id", wordObj.id);
             $(this).animate({ "top": "10px" }, 500, function () {
 
@@ -27,6 +27,7 @@
     
     $(".TipContainer").bind("touchend", function () {
         Tip.changWord();
+        window.Player.addMark(-2);
     });
     Tip.changWord();
 })();

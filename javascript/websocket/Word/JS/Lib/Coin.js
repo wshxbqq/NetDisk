@@ -10,9 +10,6 @@
 
     var coin = window.Coin = {};
     coin.addCoin = function (x, y) {
-        if (window.Player.lianji > 5) {
-            window.Player.lianji = 5;
-        };
         for (var i = 0; i < window.Player.lianji; i++) {
             var out = window.setTimeout(function () {
                     var c = document.createElement("div");
@@ -30,7 +27,7 @@
                     window.setTimeout(function () {
                         $(c).css({ "top": (window.innerHeight - 50) + "px", "left": "100px" });
                     }, 0);
-            }, 200*i);
+            }, 100*i);
         }
     };
 })();

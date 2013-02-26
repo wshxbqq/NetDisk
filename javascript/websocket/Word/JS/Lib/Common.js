@@ -9,5 +9,15 @@
         return result;
     };
 
+    $("#back_btn").bind("touchend", function () {
+        window.location.reload();
+    });
 
+    $(".panelInner").find("a.btn_yellow").bind("touchend", function () {
+        $(".mask").remove();
+        $(".panelContainer").remove();
+        window.Dic.current = window.Dic[$(this).attr("d_id")];
+        window.Tip.changWord();
+        window.begin = 1;
+    });
 })()
