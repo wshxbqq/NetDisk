@@ -69,3 +69,20 @@
     width:60px;
     height:60px;
 }
+
+.showScale
+{
+      -webkit-animation-name:icoSacle;
+            -webkit-animation-duration:0.5s;
+            -webkit-animation-timing-function:linear;
+            -webkit-animation-iteration-count:1;
+            -webkit-animation-direction:normal;
+            -webkit-animation-fill-mode:backwards;
+}
+
+@-webkit-keyframes icoSacle{
+      0%   { -webkit-transform:scale(1) rotate(0deg) }
+      30%  {-webkit-transform:scale(0.8) rotate(300deg) }
+      60%  {-webkit-transform:scale(3) rotate(600deg) }
+      100% {-webkit-transform:scale(1) rotate(1080deg)}
+}

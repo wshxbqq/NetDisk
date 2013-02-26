@@ -1,17 +1,98 @@
 ﻿.Ant_1
 {
-    background:url('../R/Img/Ants/ant1.png');
-     width:100px;
-     height:50px;
+    background:url('../R/Img/Ants/ant_1.png');
+    background-position-y:0px;
+     width:84px;
+     height:56.75px;
      position:absolute;
-     -webkit-transition-property:top,left;
+     -webkit-transition-property:left,top;
      -webkit-transition-duration:8s;
      -webkit-transition-timing-function:linear;
      text-align:center;
-     color:#ff6a00;
-     font-size:20px;
+     color:red;
+     font-size:30px;
      font-weight:bold;
      padding-top:10px;
-
+     text-shadow: #fff 0 2px 0;
+     padding:0px;
 }
+
+.Ant_2
+{
+    background-image:url('../R/Img/Ants/ant_2.png');
+    background-position-y:0px;
+     width:84px;
+     height:60px;
+     position:absolute;
+     -webkit-transition-property:left,top;
+     -webkit-transition-duration:8s;
+     -webkit-transition-timing-function:linear;
+     text-align:center;
+     color:red;
+     font-size:30px;
+     font-weight:bold;
+     padding-top:10px;
+     text-shadow: #fff 0 2px 0;
+     padding:0px;
+}
+
+
+.Ant_3
+{
+    background-image:url('../R/Img/Ants/ant_3.png');
+    background-position-y:0px;
+     width:84px;
+     height:60px;
+     position:absolute;
+     -webkit-transition-property:left,top;
+     -webkit-transition-duration:8s;
+     -webkit-transition-timing-function:linear;
+     text-align:center;
+     color:red;
+     font-size:30px;
+     font-weight:bold;
+     padding-top:10px;
+     text-shadow: #fff 0 2px 0;
+     padding:0px;
+}
+
+.Ant_4
+{
+    background-image:url('../R/Img/Ants/ant_4.png');
+    background-position-y:0px;
+     width:84px;
+     height:60px;
+     position:absolute;
+     -webkit-transition-property:left,top;
+     -webkit-transition-duration:8s;
+     -webkit-transition-timing-function:linear;
+     text-align:center;
+     color:red;
+     font-size:30px;
+     font-weight:bold;
+     padding-top:10px;
+     text-shadow: #fff 0 2px 0;
+     padding:0px;
+}
+
+.Ant_5
+{
+    background-image:url('../R/Img/Ants/ant_5.png');
+    background-position-y:0px;
+     width:84px;
+     height:59px;
+     position:absolute;
+     -webkit-transition-property:left,top;
+     -webkit-transition-duration:8s;
+     -webkit-transition-timing-function:linear;
+     text-align:center;
+     color:red;
+     font-size:30px;
+     font-weight:bold;
+     padding-top:10px;
+     text-shadow: #fff 0 2px 0;
+     padding:0px;
+}
+
+
 

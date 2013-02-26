@@ -11,16 +11,17 @@
     width:100%;
     height:100%;
     position:absolute;
+    z-index:30
 }
 .panelBg
 {
     width:70%;
-    height:60%;
+    height:90%;
     background:url('../R/Img/Panel/panel_border.gif');
     border-radius:10px;
     margin:0 auto;
     position: relative;
-    top: 20%;
+    top: 5%;
      -webkit-animation-name:panelShow;
      -webkit-animation-duration: 0.5s;/*动画持续时间*/
      -webkit-animation-timing-function: linear; /*动画频率，和transition-timing-function是一样的*/
@@ -38,28 +39,18 @@
     height:96%;
     background:#fff;
     border-radius:10px;
+    overflow-y:scroll;
 }
 .panelInner table
 {
     width:100%;
-    text-align: left;
-
-}
-
-.panelTdName
-{
-    width:40%;
-    text-align:right;
-    height:60px;
+    text-align: center;
     font-weight:bold;
-    font-size:40px
+    font-size:60px;
+    line-height:60px;
+
 }
 
-#nickName
-{
-    font-size:40px;
-    width:60%;
-}
 
 
 .submitBtnLoginDiv

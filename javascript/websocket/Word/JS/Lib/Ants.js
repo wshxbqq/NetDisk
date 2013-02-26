@@ -26,20 +26,27 @@
     };
     A.prototype.setAnswer = function (obj) {
 
-        $(this.dom).attr("word_id", obj.id);
+        $(this.dom).attr("word_id_ant", obj.id)
         $(this.text).html(obj.word);
     };
     A.prototype.initDom = function () {
-        console.log(0);
-        var isAnswerIn = $("#wraper").find("div.[word_id='" + Tip.currentWordId + "']");
+        this.type = C.getRandom(1,5);
+        var config = window.antConfig["Ant_" + this.type];
+        var isAnswerIn = $("#wraper").find("div.[word_id_ant='" + Tip.currentWordId + "']").size();
         this.dom = document.createElement("div");
         this.text = document.createElement("div");
+        $(this.dom).attr("a_frames", config.frames)
+        .attr("s_height", config.height)
+        .attr("frames", "1");
         $(this.text).css({ "-webkit-transform": "rotate(" + -this.angle + "deg)" });
         $(this.dom).append(this.text);
         if (!isAnswerIn) {
-            if (!C.getRandom(0, 3)) {
+            var ran = C.getRandom(0, 2);
+            if (!ran) {
                 console.log(1);
                 this.setAnswer(Tip.currentWord);
+            } else {
+                this.setAnswer(D.getOne());
             }
         } else {
             console.log(2);
@@ -57,14 +64,17 @@
         .addClass("Ant_" + this.type)
         .css({ "-webkit-transform": "rotate(" + this.angle + "deg)", "top": this.startPosition[1] + "px", "left": this.startPosition[0] + "px" })
         .bind("touchend", function () {
-            if ($(this).attr("word_id") != Tip.currentWordId + "") {
+            if ($(this).attr("word_id_ant") == Tip.currentWordId + "") {
                 var x = window.parseInt($(this).css("left"));
                 var y = window.parseInt($(this).css("top"));
                 Coin.addCoin(x, y);
                 $(this).remove();
-                window.Player.lianji++;
+                window.Player.addLianji();
+                Tip.changWord();
             } else {
                 window.Player.lianji = 1;
+                window.Player.wrong();
+                console.log("wrong");
             }
         });
     };
