@@ -1,0 +1,76 @@
+﻿.TipContainer
+{
+    position:absolute;
+    width:350px;
+    height:100px;
+    bottom:0px;
+    right:0px;
+    background:url('../R/Img/Panel/panel_border_1.gif');
+    border-radius:10px;
+}
+.TipInner
+{
+    width:330px;
+    height:80px;
+    margin:10px 0px 0px 10px;
+    background:#fff;
+    border-radius:10px;
+    text-align:center;
+    font-size:30px;
+    
+}
+.TipText
+{
+    width:80%;
+    margin:0 auto;
+    position:relative;
+    top:10px;
+}
+
+
+
+
+
+
+
+
+/**/
+.small_tip_bg
+{
+   background:url('../R/Img/Panel/panel_border.gif');
+   width:300px;
+   height:200px;
+   border-radius:5px;
+   position:absolute;
+        -webkit-animation-name:panelShow;
+     -webkit-animation-duration: 0.2s;/*动画持续时间*/
+     -webkit-animation-timing-function: linear; /*动画频率，和transition-timing-function是一样的*/
+     -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+     -webkit-animation-direction: alternate;/*定义动画方式*/
+     -webkit-animation-delay: 0s;/*动画延迟时间*/
+     -webkit-animation-fill-mode:forwards;
+     z-index:100
+}
+
+    .small_tip_bg .small_inner
+    {
+        position:relative;
+        width:280px;
+        height:180px;
+        margin:0 auto;
+        top:10px;
+        background:#fff;
+        border-radius:10px;
+         color:#083ca7;
+         font-weight:bold;
+         font-size:20px;
+         text-indent:20px;
+            
+    }
+        .small_tip_bg .small_inner .inner_word
+        {
+             margin-top:0px;
+              font-size:30px;
+            text-shadow: 0 0 5px #ff6a00;
+            font-weight:bolder;
+        }
