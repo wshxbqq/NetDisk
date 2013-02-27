@@ -81,17 +81,16 @@
                </div>                                                                                
            </div>                                                                                    
        </div>                                     
-       <a id="back_btn" class="btn_green" style="position:absolute; right:0px; top:0px; text-align:center;color:white">返回</a>
+       <a id="back_btn" class="btn_green" style="position:absolute; right:0px; top:10px; text-align:center;color:white">返回</a>
+         <a id="sound_btn" status="on" class="btn_green" style="position:absolute; right:200px; top:10px; text-align:center;color:white">关闭声音</a>
         <div class="player3">
             <div class="bar2">
                 <div class="playerInnerDiv2"><span class="name">得分：</span><span class="level"></span></div>
             </div>
             <div class="bar1">
-               <div class="playerInnerImg"><img src="R/Img/Player/player1.png" /></div>
                <div class="playerInnerDiv">
                   <table style="width:100%">
                       <tr>
-                          
                           <td><img class="expIco"  src="R/Img/Common/exp_1.png" /></td>
                           <td><img class="expIco transparent"   src="R/Img/Common/exp_1.png"></td>
                           <td><img class="expIco transparent"   src="R/Img/Common/exp_1.png"></td>
@@ -108,7 +107,7 @@
             </div>
         </div>
     </div>
-        <script src="JS/Lib/jquery-1.7.2.js"></script>
+    <script src="JS/Lib/jquery-1.7.2.js"></script>
     <script src="JS/Lib/antConfig.js"></script>
     <script src="JS/Lib/Dic.js"></script>
     <script src="JS/Panel/Panel.js"></script>
@@ -118,6 +117,7 @@
     <script src="JS/Lib/Coin.js"></script>
     <script src="JS/Lib/Player.js"></script>
     <script src="JS/Lib/MoveClip.js"></script>
+    <script src="JS/Lib/Sound.js"></script>
 
       <script>
           window.begin = false;
@@ -128,7 +128,7 @@
               var a = new window.Ant();
                 a.init();
                 a.render();
-          },2000);
+          },1000);
          
       </script>
 </body>

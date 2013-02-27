@@ -3,7 +3,6 @@
     padding:0px;
     height:100%;
     width:100%;
-    background:#ccc;
     -webkit-user-select:none; overflow:hidden;
 }
 .wraper
@@ -12,6 +11,10 @@
     padding:0px;
     width:100%;
     height:100%;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    
+
 }
 a.btn_green,a.btn_yellow,a.btn_gray{ min-width:80px;margin:0 3px 0 3px;text-shadow:0px 1px 2px #1b2f0e;font-size:24px;padding:8px 24px 8px 24px;border-radius:10px;width:auto;display:inline-block;line-height:24px;}
  a.btn_green{background:-webkit-gradient(linear, 0 0, 0 bottom, from(#82cf37), to(#2e8806));border:2px solid #23590e}

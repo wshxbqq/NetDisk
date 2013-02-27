@@ -5,6 +5,7 @@
     var height = window.innerHeight;
     var C = window.Common;
     var D = window.Dic;
+    var P = window.Panel;
     var poolMax = 10;
     var A = window.Ant = function () {
         this.dom = null;
@@ -64,17 +65,29 @@
         .addClass("Ant_" + this.type)
         .css({ "-webkit-transform": "rotate(" + this.angle + "deg)", "top": this.startPosition[1] + "px", "left": this.startPosition[0] + "px" })
         .bind("touchend", function () {
+            var x = window.parseInt($(this).css("left"));
+            var y = window.parseInt($(this).css("top"));
             if ($(this).attr("word_id_ant") == Tip.currentWordId + "") {
-                var x = window.parseInt($(this).css("left"));
-                var y = window.parseInt($(this).css("top"));
                 Coin.addCoin(x, y);
                 $(this).remove();
                 window.Player.addLianji();
                 Tip.changWord();
+                P.showMarkAdd(x, y, window.Player.lianji);
+                window.Sound.play("right");
             } else {
+                $(this).remove();
+                var w;
+                for (var i in Dic.current) {
+                    if (Dic.current[i].id==$(this).attr("word_id_ant")) {
+                        w = Dic.current[i];
+                    }
+                }
+                P.showSmall_tip(w.word, w.soundmark, w.explain,x,y);
                 window.Player.lianji = 1;
                 window.Player.wrong();
-                console.log("wrong");
+                P.showMarkAdd(x, y, -5);
+                window.Player.addMark(-5);
+                window.Sound.play("wrong");
             }
         });
     };

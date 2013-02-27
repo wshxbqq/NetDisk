@@ -6,6 +6,31 @@
       100% {-webkit-transform:scale(1)}
 }
 
+
+
+@-webkit-keyframes mark_add{
+      0%   { -webkit-transform:translateY(0px) ;opacity:1}
+      100% {-webkit-transform:translateY(-100px);opacity:0.5}
+}
+
+.mark_add
+{
+    position:absolute;
+    width:100px;
+    height:40px;
+    font-weight:bolder;
+    font-size:100px;
+    text-align:center;
+         -webkit-animation-name:mark_add;
+     -webkit-animation-duration: 2s;/*动画持续时间*/
+     -webkit-animation-timing-function: linear; /*动画频率，和transition-timing-function是一样的*/
+     -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+     -webkit-animation-direction: alternate;/*定义动画方式*/
+     -webkit-animation-delay: 0s;/*动画延迟时间*/
+     -webkit-animation-fill-mode:forwards;
+}
+
+
 .panelContainer
 {
     width:100%;
@@ -37,9 +62,12 @@
     width:98%;
     top:2%;
     height:96%;
-    background:#fff;
+    background-image:url('../R/Img/Common/book_bg.jpg');
+    background-repeat:no-repeat;
+    background-size:100% 100%;
     border-radius:10px;
     overflow-y:scroll;
+
 }
 .panelInner table
 {
@@ -73,6 +101,6 @@ height:50px;
 {
     color:#083ca7;
     font-weight:bold;
-    font-size:20px
+    font-size:20px;
 
 }

@@ -18,6 +18,7 @@
                         if (!flag) {
                             window.Player.addMark(1);
                             $(this).remove();
+                            window.Sound.play("ding");
                         }
                         flag = true;
                     });

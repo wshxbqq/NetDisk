@@ -2,12 +2,8 @@
 /// <reference path="Dic.js" />
 
 (function () {
-
     var C = window.Common;
     var D = window.Dic;
-
-
-
     var antConfig = window.antConfig = {
         Ant_1: {
             frames: 4,
