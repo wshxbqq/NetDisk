@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="width=900,height=550, initial-scale=0.5, maximum-scale=0.5, user-scalable=no;" name="viewport">
+    <title></title>
+    <style>
+        html,body
+        {
+            background:#000;
+            border:0;
+            padding:0;
+            user-select:none;
+
+        }
+
+    </style>
+</head>
+<body>
+    <img src="img/fire.png" style="display:none" id="fireImg" />
+    <canvas id="main" width="1000" height="500"></canvas>
+    <script>
+
+        var fps = 30;
+        var time = 0;
+        var key = {};
+        var enemys, bombs, bullets, objs;
+        var myCanvas = document.getElementById("main");
+        var g = myCanvas.getContext("2d");
+        var fpsTime, nowFps;
+        var enemyTime = 10;
+        var gameStart = false;
+    </script>
+    <script src="js/Common.js"></script>
+    <script src="js/Bomb.js"></script>
+    <script src="js/Vetor.js"></script>
+
+    <script>
+
+        addFire=function(x,y)
+        {
+            var fire = new Fire(x + 22,y + 50);
+            bombs.push(fire);
+        }
+
+        updateObjs=function () {
+            var i, j, obj;
+            for (i = 0; i < 3; i++) {
+                obj = objs[i];
+                for (j = 0; j < obj.length; j++) {
+                    obj[j].update();
+                    if (obj[j].isDie) {
+                        obj[j] = null;
+                        obj.splice(j, 1);
+                        j--;
+                    }
+                }
+
+            }
+        }
+
+        drawObjs = function () {
+            g.clearRect(0, 0, 1000, 1000);
+            var i, j, obj;
+            for (i = 0; i < 3; i++) {
+                obj = objs[i];
+                for (j = 0; j < obj.length; j++) {
+                    obj[j].draw()
+                }
+
+            }
+        }
+
+        function init() {
+            time = 0;
+            key = {};
+            enemys = [];
+            bombs = [];
+            bullets = [];
+            objs = [enemys, bombs, bullets];
+            fpsTime = +new Date()
+        }
+
+        var gameStart =
+        {
+            time: 0,
+            type: 0,
+            addBombs: function (XX,YY) {
+                var bomb, x, y, type;
+                var type = tool.random(1, 7, true);
+
+                x = tool.random(80, 420);
+                y = tool.random(80, 420);
+
+
+                for (var i = 0 ; i < 30; i++) {
+                    bomb = new Bomb(XX, YY, type);
+                    bombs.push(bomb);
+                }
+            },
+
+            update: function () {
+                this.time++;
+                if (this.time % 5 == 0) {
+                    if (this.time % 200 == 0) {
+                        this.type++;
+                        if (this.type > 6) this.type = 0;
+                    }
+                    this.addBombs();
+                }
+            }
+        }
+
+        init();
+        setInterval("drawObjs()", 1000 / 24);
+        setInterval("updateObjs()", 1000 / fps);
+
+        myCanvas.addEventListener("touchend", function (e) {
+            var x = e.changedTouches[0].clientX;
+            var y = e.changedTouches[0].clientY;
+            gameStart.addBombs(x,y);
+        });
+
+        window.setInterval(function () { gameStart.addBombs(tool.random(0, 1000), tool.random(0, 1000)); }, 0);
+    </script>
+</body>
+</html>
