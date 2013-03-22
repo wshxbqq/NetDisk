@@ -279,8 +279,8 @@
     }
     R.fireWork = gameStart;
     init();
-    setInterval("drawObjs()", 1000 / 24);
-    setInterval("updateObjs()", 1000 / fps);
+   // setInterval("drawObjs()", 1000 / 24);
+   // setInterval("updateObjs()", 1000 / fps);
 
     //myCanvas.addEventListener("touchend", function (e) {
     //    var x = e.changedTouches[0].clientX;

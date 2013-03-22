@@ -11,6 +11,7 @@
 
     global.physics = "physics";
     global.magic = "magic";
+    global.health="health";
 
     global.countAddtional = 0.5; // 连击的加成
 

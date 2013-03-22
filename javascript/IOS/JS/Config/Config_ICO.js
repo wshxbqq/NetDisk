@@ -21,7 +21,7 @@
         sound:"",
         damage: [27, 50],
         type: global.physics,
-        name: "技能1",
+        name: "致死打击",
         dot: null
     },icfg.sk3 = {
         id:"sk3",
@@ -40,7 +40,7 @@
         sound:"",
         damage: [27, 50],
         type: global.physics,
-        name: "技能1",
+        name: "邪恶攻击",
         dot: null
     },icfg.sk5 = {
         id:"sk5",
@@ -48,7 +48,7 @@
         sound:"",
         damage: [27, 50],
         type: global.physics,
-        name: "技能1",
+        name: "剔骨",
         dot: null
     },icfg.sk6 = {
         id:"sk6",
@@ -56,15 +56,26 @@
         sound:"",
         damage: [27, 50],
         type: global.physics,
-        name: "技能1",
-        dot: null
+        name: "撕裂",
+        dot: {
+            damage: [9, 10],
+            round: 4
+        }
     },icfg.sk7 = {
         id:"sk7",
         img: "R/Img/Ico/sk_7.png",
         sound:"",
         damage: [27, 50],
         type: global.physics,
-        name: "技能1",
+        name: "死亡脚步",
+        dot: null
+    }, icfg.sk8 = {
+        id: "sk8",
+        img: "R/Img/Ico/sk_8.png",
+        sound: "",
+        health: [270, 500],
+        type: global.health,
+        name: "圣光术",
         dot: null
     }
 })()

@@ -54,22 +54,11 @@
         $(this.HPBarInner).css("width", percent + "%");
     };
 
-    E.prototype.showNum = function (damage,word,font) {
-        var color = "red";
-        var text = "-" + damage;
-        if (damage < 0) {
-            color = "green";
-            text = "+" + damage;
-        }
-        if (damage == 0) {
-            text = "";
-        }
+    E.prototype.showNum = function (numConfig) {
 
-        if (word) {
-            text += "   ";
-            text += word;
-        }
-        var num = new window.Num({ "text": text, "color": color });
+
+
+        var num = new window.Num(numConfig);
         num.init();
         var position = $(this.headDOM).offset();
 
@@ -77,9 +66,14 @@
         var top = C.int(position.top) + 50;
         var left = C.int(position.left) + 100;
 
-        var p = { "top": top + "px", "left": left + "px", "font-size": font+"px" };
+        var p = { "top": top + "px", "left": left + "px"};
         $(num.DOM).css(p);
-        $(num.DOM).addClass("enemyIcoNum");
+        if (numConfig.isCritial) {
+            $(num.DOM).addClass("enemyIcoNum1");
+        } else {
+            $(num.DOM).addClass("enemyIcoNum");
+        }
+        
         num.show();
     }
 
@@ -114,7 +108,12 @@
             (function (d,name) {
                 window.setTimeout(function () {
                     R.enemyBar.minusHP(d);
-                    R.enemyBar.showNum(d, name,20);
+                    var numConfig = window.Num.getDamageNumConfigObj(d);
+                    var nameConfig = window.Num.getNameNumConfigObj(name);
+                    numConfig.size = "20px";
+                    nameConfig.size = "20px";
+                    var config = { text: [numConfig, nameConfig] };
+                    R.enemyBar.showNum(config);
                 }, 300 * i);
             })(damage, name)
            
@@ -161,7 +160,20 @@
         var result = A.computeDamageToPlayer();
         R.playerBar.minusHP(result.damage);
         R.playerBar.shakeHead();
-        R.playerBar.showNum(result.damage, result.word);
+
+
+
+        var resultArray = [];
+        if (result.damage > 0) {
+            resultArray.push(window.Num.getDamageNumConfigObj(result.damage));
+        };
+        if (result.word) {
+            resultArray.push(window.Num.getStatusNumConfigObj(result.word));
+        };
+
+        var config = { text: resultArray };
+
+        R.playerBar.showNum(config);
 
 
     };

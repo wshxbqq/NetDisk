@@ -34,7 +34,7 @@
         var isWithstand = C.getRandom(0, 100, 1);
         if (isWithstand < R.currentEnemy.withstandPercent) {
             damage = 0;
-            result.isDodge = true;
+            result.isWithstandPercent = true;
             result.word = "招架";
         };
 
@@ -114,6 +114,36 @@
 
         for (var i in R.extSkillArray) {
                 R.extSkillArray[i](result);
+        };
+
+        return result;
+    };
+
+
+    A.computeHealth = function (hitObj) {
+        var C = window.Common;
+        var global = window.GLOBAL_CONFIG;
+        var R = window.RunTime;
+
+
+        var result = { type:3, skill: skill, combol: combol };
+        var skill = hitObj.skill;
+        var combol = hitObj.combol;
+
+
+        var health = C.getRandom(skill.health[0], skill.health[1], 1);
+        health += C.int((health * global.countAddtional) * combol);
+        result.health = health;
+
+        var isCritial = C.getRandom(0, 100, 1);
+        if (isCritial < R.currentPlayer.criticalPercent) {
+            health = health * R.currentPlayer.criticalAddtion;
+            result.isCritial = true;
+            result.word = "暴击";
+        };
+
+        for (var i in R.extSkillArray) {
+            R.extSkillArray[i](result);
         };
 
         return result;

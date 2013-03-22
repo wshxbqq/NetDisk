@@ -48,27 +48,18 @@
         var percent = 0;
         if (count < this.HP) {
             this.HP = this.HP - count;
+            if (this.HP > this.MaxHP) {
+                this.HP = this.MaxHP;
+            }
             percent = C.int((this.HP / this.MaxHP) * 100);
         };
         $(this.HPBarInner).css("width", percent + "%");
     };
 
-    PB.prototype.showNum = function (damage, word) {
+    PB.prototype.showNum = function (numConfig) {
 
-        var color = "red";
-        var text = "-" + damage;
-        if (damage < 0) {
-            color = "green";
-            text = "+" + damage;
-        };
-        if (damage == 0) {
-            text = "";
-        }
-        if (word) {
-            text += "   ";
-            text += word;
-        }
-        var num = new window.Num({ "text": text, "color": color });
+
+        var num = new window.Num(numConfig);
         num.init();
         var position = $(this.headDOM).offset();
 

@@ -18,6 +18,7 @@
         R.fireWork.addBombs(x, y);
         window.setTimeout(function () {
             $(R.myCanvas).remove();
+            R.isA = false;
         }, 2500);
        
     };
@@ -31,29 +32,90 @@
         var combol=R.explodeArray.length;
         var s = new window.ShadowIco();
         s.init(ico.config, position);
-        s.dieCB = function (e) {
-            var hitObj = { skill: s.config, combol: combol };
-            var result = A.computeDamage(hitObj);
-            R.enemyBar.minusHP(result.damage);
-            R.enemyBar.shakeHead();
-            R.enemyBar.showNum(result.damage, result.word);
 
-            if (s.config.dot) {
-                R.enemyBar.addDot(s.config, combol);
-            }
-            
-            window.setTimeout(function () {
-                window.EnemyBar.attckpalyer();
-                window.setTimeout(function () { R.enemyBar.dotUpdate(); }, 300);
+        if (ico.config.type == G.health) {//区分是治疗技能 还是伤害技能
+            s.dieCB = function () {
+                var hitObj = { skill: s.config, combol: combol };
+                var result = A.computeHealth(hitObj);
+                R.playerBar.minusHP(-result.health);
+                R.playerBar.shakeHead();
+
+                var resultArray = [];
+                if (result.health > 0) {
+                    resultArray.push(window.Num.getDamageNumConfigObj(-result.health));
+                };
+                if (result.health > 0) {
+                    resultArray.push(window.Num.getNameNumConfigObj(hitObj.skill.name));
+                };
+                if (result.word) {
+                    resultArray.push(window.Num.getStatusNumConfigObj(result.word));
+                };
                 
-            }, 1000);
-        };
 
-        var p1 = $(R.enemyBar.headDOM).offset();
-        
-        var minusTop = C.int(position.top) - C.int(p1.top);
-        var minusLeft = C.int(position.left) - C.int(p1.left);
-        window.setTimeout(function () { s.render(wraper); s.setPosition(-(minusTop-40), -(minusLeft-40)); }, 500);
+                var config = { text: resultArray };
+                R.playerBar.showNum(config);
+
+
+                window.setTimeout(function () {
+                    window.EnemyBar.attckpalyer();
+                    window.setTimeout(function () { R.enemyBar.dotUpdate(); }, 300);
+
+                }, 1000);
+            }
+            var p2 = $(R.playerBar.headDOM).offset();
+
+            var minusTopPlayer = C.int(position.top) - C.int(p2.top);
+            var minusLeftPlayer = C.int(position.left) - C.int(p2.left);
+            window.setTimeout(function () { s.render(wraper); s.setPosition(-(minusTopPlayer - 40), -(minusLeftPlayer - 40)); }, 500);
+
+        } else {
+            s.dieCB = function (e) {
+                var hitObj = { skill: s.config, combol: combol };
+                var result = A.computeDamage(hitObj);
+                R.enemyBar.minusHP(result.damage);
+                R.enemyBar.shakeHead();
+                var isCritial = 0;
+                var resultArray = [];
+                if (result.damage > 0) {
+                    resultArray.push(window.Num.getDamageNumConfigObj(result.damage));
+                };
+                if (result.damage > 0) {
+                    resultArray.push(window.Num.getNameNumConfigObj(hitObj.skill.name));
+                };
+                if (result.word) {
+                    resultArray.push(window.Num.getStatusNumConfigObj(result.word));
+                    
+                };
+                if (result.isCritial) {
+                    isCritial = 1;
+                };
+                if (result.isDodge || result.isWithstandPercent) {
+                    isCritial = 0;
+                };
+                
+
+                var config = { text: resultArray, isCritial: isCritial };
+                R.enemyBar.showNum(config);
+
+
+                if (s.config.dot) {
+                    R.enemyBar.addDot(s.config, combol);
+                }
+
+                window.setTimeout(function () {
+                    window.EnemyBar.attckpalyer();
+                    window.setTimeout(function () { R.enemyBar.dotUpdate(); }, 300);
+
+                }, 1000);
+            };
+
+            var p1 = $(R.enemyBar.headDOM).offset();
+
+            var minusTop = C.int(position.top) - C.int(p1.top);
+            var minusLeft = C.int(position.left) - C.int(p1.left);
+            window.setTimeout(function () { s.render(wraper); s.setPosition(-(minusTop - 40), -(minusLeft - 40)); }, 500);
+        }
+
     };
 
     M.sences = {};
