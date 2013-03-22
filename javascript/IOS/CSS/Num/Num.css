@@ -1,0 +1,11 @@
+﻿.Num
+{
+   width:200px;
+   height:20px;
+   position:absolute;
+   z-index:100;
+   font-size:30px;
+   font-weight:20px;
+   font-weight:bolder;
+   text-shadow:0 0 6px #F96, -1px -1px  #FFF, 1px -1px  #444;
+}

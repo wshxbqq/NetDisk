@@ -13,7 +13,6 @@
         if (css) {
             $(dom).css(css);
         };
-
         return dom;
 
 
