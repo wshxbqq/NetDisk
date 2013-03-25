@@ -37,7 +37,7 @@
         div.ico = this;
         this.DOM = div;
         div.addEventListener("webkitAnimationEnd", this.remove);
-        div.addEventListener("touchend", function () {
+        div.addEventListener("click", function () {
             if (R.isA) {
                 return;
             }
