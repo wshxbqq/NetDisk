@@ -5,13 +5,16 @@
     EnemyConfig.enemy1 = {
         MaxHP: 2342,
         img: "R/Img/Head/Enemy/enemy1.png",
-        name:"血色杂兵",
+        name:"奇美拉",
         sound: "",
         damage: [100, 200],
         criticalPercent: 80, //暴击几率
         criticalAddtion:2,   //暴击后 伤害提升
         dodgePercent: 20,
-        withstandPercent:20
+        withstandPercent: 20,
+        frameCount: 33,
+        frameWidth: 100,
+        frameInterval: 40
     };
 
 

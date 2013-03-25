@@ -105,17 +105,18 @@
             var result = A.computeDotDamage(dot);
             var damage = result.damage;
             var name = dot.skill.name;
-            (function (d,name) {
+            (function (d,name,img) {
                 window.setTimeout(function () {
                     R.enemyBar.minusHP(d);
                     var numConfig = window.Num.getDamageNumConfigObj(d);
-                    var nameConfig = window.Num.getNameNumConfigObj(name);
+                    var nameConfig = window.Num.getNameNumConfigObj("");
                     numConfig.size = "20px";
                     nameConfig.size = "20px";
-                    var config = { text: [numConfig, nameConfig] };
+                    var config = { text: [numConfig, nameConfig],icoSize:20, ico: { config: { img: img } } };
                     R.enemyBar.showNum(config);
+
                 }, 300 * i);
-            })(damage, name)
+            })(damage, name, dot.skill.img)
            
             
 
@@ -153,6 +154,10 @@
         this.HPBar = div_enemyHPBar;
         this.DotBar = div_dotbar;
         this.name = div_name;
+
+        var  enemyClicp1 = new MovieClip(div_enemyHeadIco, this.config);
+        enemyClicp1.init();
+        R.clipArray.push(enemyClicp1);
     };
 
     E.attckpalyer = function () {

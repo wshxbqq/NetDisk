@@ -8,12 +8,11 @@
 .enemyBar .enemyHeadIco
 {
     background-color:#000;
-    width:85px;
-    height:85px;
+    width:100px;
+    height:100px;
     top: 10px;
 left: 10px;
     position:absolute;
-    background-size:100% 100%;
     border-radius:10px;
      -webkit-animation-duration: 0.15s;/*动画持续时间*/
      -webkit-animation-timing-function: linear; /*动画频率，和transition-timing-function是一样的*/
@@ -26,8 +25,8 @@ left: 10px;
     .enemyBar .enemyHeadIcoBorder
     {
         position:absolute;
-        width:105px;
-        height:106px;
+        width:120px;
+        height:120px;
         top: 40px;
 left: 20px;
         background:url(../../R/Img/Head/enemyBorder.png);

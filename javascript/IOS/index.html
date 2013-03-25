@@ -17,7 +17,6 @@
 </head>
 <body>
     <div class="wraper" id="wraper">
-        <div style=" position:absolute;"></div>
     </div>
     <script>
         var wraper = document.getElementById("wraper");
@@ -27,6 +26,7 @@
     <script src="JS/Lib/jquery-1.7.2.js"></script>
     <script src="JS/Config/Config.js"></script>
     <script src="JS/Config/Config_ICO.js"></script>
+        <script src="JS/Config/movieClipConfig.js"></script>
     <script src="JS/Config/Config_Skill.js"></script>
     <script src="JS/Config/EnemyConfig.js"></script>
     <script src="JS/Common/Common.js"></script>
@@ -34,6 +34,8 @@
     <script src="JS/RunTime.js"></script>
     <script src="JS/Manager.js"></script>
 
+    <script src="JS/JSFile/MovieClip/MovieClip.js"></script>
+    <script src="JS/JSFile/MovieClip/SkillClip.js"></script>
     <script src="JS/JSFile/Num/Num.js"></script>
     <script src="JS/JSFile/Ico/Ico.js"></script>
     <script src="JS/JSFile/Ico/line.js"></script>
@@ -48,7 +50,7 @@
 
 
         window.Manager.showBattleSence();
-        //$("body").bind("click", function () {
+        //$("body").bind("touchend", function () {
         //    location.reload();
         //})
     </script>

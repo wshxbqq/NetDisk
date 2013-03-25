@@ -100,6 +100,10 @@
         this.headDOM = div_PlayerHeadIco;
         this.HPBar = div_PlayerHPBar;
         this.name = div_name;
+
+        var playerClicp1 = new MovieClip(div_PlayerHeadIco, this.config);
+        playerClicp1.init();
+        R.clipArray.push(playerClicp1);
     };
 
    

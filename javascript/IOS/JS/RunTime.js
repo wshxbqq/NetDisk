@@ -7,20 +7,24 @@
     R.currentPlayer = window.Player = {
         MaxHP: 2342,
         HP:2342,
-        img: "R/Img/Player/nv.png",
-        name: "美女",
+        img: "R/Img/Player/player1.png",
+        name: "BloodElf",
         sound: "",
         damage: [100, 200],
         criticalPercent: 30, //暴击几率
         criticalAddtion: 2,   //暴击后 伤害提升
         dodgePercent: 20,
-        withstandPercent: 20
+        withstandPercent: 20,
+        frameCount: 150,
+        frameWidth: 65,
+        frameInterval: 40
 
     };
 
     R.explodeArray = [];
     R.pool = null;
     R.dotArray = [];
+    R.clipArray = [];
 
     //-当穿上装备以后，效果方法都定义在这里。
     R.extSkillArray = [];

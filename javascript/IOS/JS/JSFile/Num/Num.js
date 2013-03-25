@@ -6,10 +6,11 @@
 
     var N = window.Num = function (config) {
         this.config = config;
+        this.img = null;
         this.DOM = null;
     };
 
-    //{"text":"123","color":"red","left":"","top":""}
+    //{"text":"123","color":"red","left":"","top":"",ico:ico, icoSize:20}
     //{"left":"","top":"",text:[{"text":"123","color":"red",size:"20px"},isCritial:0]}
 
     N.prototype.init = function () {
@@ -17,7 +18,16 @@
         for (var i in this.config.text) {
             var spanConfig = this.config.text[i];
             var span = C.createDom("span", {}, { "color": spanConfig.color, "font-size": spanConfig.size });
-            span.innerHTML = spanConfig.text;
+            $(span).append(spanConfig.text);
+
+            if (this.config.ico) {
+                var icoPX = this.config.icoSize ? this.config.icoSize + "px" : "30px";
+                var imgIco = this.config.ico;
+                this.img = C.createDom("img", { "src": imgIco.config.img }, { "width": icoPX, "height": icoPX, "margin-left": "10px" });
+             
+
+                
+            }
             $(div).append(span);
         }
         div.addEventListener("webkitAnimationEnd", function (e) {
@@ -25,6 +35,7 @@
         });
         $(div).addClass("Num");
         this.DOM = div;
+         $(div).append(this.img);
     };
 
 

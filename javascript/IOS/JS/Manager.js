@@ -52,7 +52,7 @@
                 };
                 
 
-                var config = { text: resultArray };
+                var config = { text: resultArray, ico: ico };
                 R.playerBar.showNum(config);
 
 
@@ -94,7 +94,7 @@
                 };
                 
 
-                var config = { text: resultArray, isCritial: isCritial };
+                var config = { text: resultArray, isCritial: isCritial, ico: ico };
                 R.enemyBar.showNum(config);
 
 

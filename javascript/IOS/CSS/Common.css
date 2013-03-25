@@ -48,3 +48,10 @@ span.cash{ background:url(../img/ico_cash.png) no-repeat;display:inline-block;he
     position:absolute;
     z-index:1000;
 }
+
+
+.skillClip
+{
+    position:absolute;
+    z-index:10;
+}

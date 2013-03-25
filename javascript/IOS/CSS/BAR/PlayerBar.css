@@ -19,7 +19,6 @@
     width:65px;
     height:65px;
     position:absolute;
-    background-size:100% 100%;
     border-radius:10px;
      -webkit-animation-duration: 0.15s;/*动画持续时间*/
      -webkit-animation-timing-function: linear; /*动画频率，和transition-timing-function是一样的*/
