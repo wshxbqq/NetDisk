@@ -57,5 +57,17 @@
         }
     };
 
+    C.disableTouchMove = function () {
+   
+        document.addEventListener("touchmove", function (e) {
 
+            e.preventDefault();
+           
+        });
+    };
+
+    C.enableTouchMove = function () {
+        document.removeEventListener("touchmove");
+     
+    };
 })()

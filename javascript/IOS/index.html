@@ -14,21 +14,29 @@
     <link href="CSS/ICO/ShadoeIco.css" rel="stylesheet" />
     <link href="CSS/Num/Num.css" rel="stylesheet" />
 
+    <link href="CSS/FM/FM.css" rel="stylesheet" />
+
 </head>
 <body>
-    <div class="wraper" id="wraper">
+    <div class="wraper" id="wraper"> 
+
     </div>
     <script>
         var wraper = document.getElementById("wraper");
     </script>
 
+
+    <script src="DATA.js"></script>
+
     <script src="JS/Lib/cordova-2.4.0.js"></script>
     <script src="JS/Lib/jquery-1.7.2.js"></script>
     <script src="JS/Config/Config.js"></script>
     <script src="JS/Config/Config_ICO.js"></script>
-        <script src="JS/Config/movieClipConfig.js"></script>
+    <script src="JS/Config/Config_Player.js"></script>
+    <script src="JS/Config/movieClipConfig.js"></script>
     <script src="JS/Config/Config_Skill.js"></script>
     <script src="JS/Config/EnemyConfig.js"></script>
+    <script src="JS/Config/Config_FM.js"></script>
     <script src="JS/Common/Common.js"></script>
     <script src="JS/Ansy/Ansy.js"></script>
     <script src="JS/RunTime.js"></script>
@@ -45,14 +53,20 @@
     <script src="JS/Bar/PlayerBar.js"></script>
     <script src="JS/FireWork/FireWork.js"></script>
 
+    <script src="JS/JSFile/FM/FM.js"></script>
+
     <script>
-        
+        window.Manager.initDATA(window.DATA);
 
-
-        window.Manager.showBattleSence();
+       // window.Manager.showBattleSence();
         //$("body").bind("touchend", function () {
         //    location.reload();
         //})
+        var a = new window.FM_Page()
+        undefined
+        a.show()
     </script>
+
+
 </body>
 </html>

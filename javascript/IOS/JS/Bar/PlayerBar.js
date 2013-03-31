@@ -25,8 +25,8 @@
     PB.prototype.init = function (config) {
         this.ID = "ICO_" + Math.random();
         this.config = config;
-        this.MaxHP = config.MaxHP;
-        this.HP = config.MaxHP;
+        this.MaxHP = config.race.MaxHP;
+        this.HP = config.race.MaxHP;
         this.initDOM();
     };
 
@@ -84,7 +84,7 @@
     PB.prototype.initDOM = function () {
         var div_PlayerBar = C.createDom("div", { "class": "PlayerBar" }, {});
         var div_PlayerHeadIcoBorder = C.createDom("div", { "class": "PlayerHeadIcoBorder" }, {});
-        var div_PlayerHeadIco = C.createDom("div", { "class": "PlayerHeadIco" }, { "background-image": "url('" + this.config.img + "')" });
+        var div_PlayerHeadIco = C.createDom("div", { "class": "PlayerHeadIco" }, { "background-image": "url('" + this.config.race.ico.img + "')" });
         var div_HPBarInner = C.createDom("div", { "class": "PlayerHPBarInner" }, {});
         var div_PlayerHPBar = C.createDom("div", { "class": "PlayerHPBar" }, {});
         var div_name = C.createDom("div", { "class": "name" }, {});
@@ -101,13 +101,12 @@
         this.HPBar = div_PlayerHPBar;
         this.name = div_name;
 
-        var playerClicp1 = new MovieClip(div_PlayerHeadIco, this.config);
+        var playerClicp1 = new MovieClip(div_PlayerHeadIco, this.config.race.ico);
         playerClicp1.init();
         R.clipArray.push(playerClicp1);
     };
 
    
-
 
 
 })()

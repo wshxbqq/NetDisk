@@ -176,6 +176,8 @@
             resultArray.push(window.Num.getStatusNumConfigObj(result.word));
         };
 
+      
+
         var config = { text: resultArray };
 
         R.playerBar.showNum(config);

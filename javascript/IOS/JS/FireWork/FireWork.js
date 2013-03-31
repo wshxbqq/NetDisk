@@ -200,8 +200,12 @@
     var time = 0;
     var key = {};
     var enemys, bombs, bullets, objs;
-    var myCanvas =R.myCanvas= C.createDom("canvas", {"width":"640","height":"960","class":"canvasFireWork"}, {});
+    var myCanvas = R.myCanvas = C.createDom("canvas", { "width": "650", "height": "600", "class": "canvasFireWork" }, {});
     var g = myCanvas.getContext("2d");
+    g.globalAlpha = 0.6;
+    g.fillStyle = '#000';
+    g.fillRect(0, 0, 640, 557);
+
     var fpsTime, nowFps;
     var enemyTime = 10;
     var gameStart = false;

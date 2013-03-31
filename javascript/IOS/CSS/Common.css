@@ -46,7 +46,10 @@ span.cash{ background:url(../img/ico_cash.png) no-repeat;display:inline-block;he
 .canvasFireWork
 {
     position:absolute;
-    z-index:1000;
+    z-index:10;
+    top:-10px;
+    left:-10px;
+    -webkit-transform:scaleX(1.2)
 }
 
 
@@ -54,4 +57,11 @@ span.cash{ background:url(../img/ico_cash.png) no-repeat;display:inline-block;he
 {
     position:absolute;
     z-index:10;
+}
+
+.btn
+{
+    background:url('../R/img/Other/btn.png');
+    background-size:100% 100%;
+    text-align:center;
 }

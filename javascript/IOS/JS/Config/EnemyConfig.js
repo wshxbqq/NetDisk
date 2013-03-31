@@ -8,7 +8,7 @@
         name:"奇美拉",
         sound: "",
         damage: [100, 200],
-        criticalPercent: 80, //暴击几率
+        criticalPercent: 90, //暴击几率
         criticalAddtion:2,   //暴击后 伤害提升
         dodgePercent: 20,
         withstandPercent: 20,

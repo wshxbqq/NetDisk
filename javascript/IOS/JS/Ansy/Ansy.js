@@ -5,18 +5,18 @@
 
     //hitObj {} skill combol
     A.computeDamage = function (hitObj) {
+
         var C = window.Common;
         var global = window.GLOBAL_CONFIG;
         var R = window.RunTime;
 
 
-        var result = { type: 0, skill: skill, combol: combol };
+        
         var skill = hitObj.skill;
         var combol = hitObj.combol;
-
         var damage = C.getRandom(skill.damage[0], skill.damage[1],1);
         damage +=C.int( (damage * global.countAddtional) * combol);
-
+        var result = { type: 0, skill: skill, combol: combol, OranDamage: damage };
         var isCritial = C.getRandom(0, 100, 1);
         if (isCritial < R.currentPlayer.criticalPercent) {
             damage = damage * R.currentPlayer.criticalAddtion;
@@ -41,8 +41,11 @@
 
         result.damage = damage;
         
-        for (var i in R.extSkillArray) {
-                R.extSkillArray[i](result);
+        for (var i in R.currentPlayer.FM) {
+            var fm = R.currentPlayer.FM[i];
+            if (fm.ext) {
+                fm.ext(result);
+            }
         };
 
         return result;
@@ -73,20 +76,17 @@
             result.word = "闪躲";
         };
 
-        var isWithstand = C.getRandom(0, 100, 1);
-        if (isWithstand < R.currentPlayer.withstandPercent) {
-            damage = 0;
-            result.isDodge = true;
-            result.word = "招架";
-        };
+  
 
 
         result.damage = damage;
 
-        for (var i in R.extSkillArray) {
-            R.extSkillArray[i](result);
+        for (var i in R.currentPlayer.FM) {
+            var fm = R.currentPlayer.FM[i];
+            if (fm.ext) {
+                fm.ext(result);
+            }
         };
-
         return result;
     };
 
@@ -142,8 +142,11 @@
             result.word = "暴击";
         };
 
-        for (var i in R.extSkillArray) {
-            R.extSkillArray[i](result);
+        for (var i in R.currentPlayer.FM) {
+            var fm = R.currentPlayer.FM[i];
+            if (fm.ext) {
+                fm.ext(result);
+            }
         };
 
         return result;

@@ -19,14 +19,29 @@
         window.setTimeout(function () {
             $(R.myCanvas).remove();
             R.isA = false;
-        }, 2500);
-       
+        }, 3000);
     };
+
+    M.initDATA = function (DATA) {  //入口方法
+        var race = window.CONFIG_RACE[DATA.race];
+        R.currentPlayer = {
+            race: race,
+            status: DATA.status,
+            coin: DATA.coin,
+            FM: []
+        };
+
+        for (var i in DATA.FM) {
+            var FM_STR = DATA.FM[i];
+            R.currentPlayer.FM.push(window.ConfigFM[FM_STR]);
+        };
+    };
+
     M.showShadow = function () {
 
     }
     M.explode = function (ico) {
-        $(wraper).prepend(R.myCanvas);
+        $(window.RunTime.pool.DOM).prepend(R.myCanvas);
         R.pool.explode(ico);
         var position = $(ico.DOM).offset();
         var combol=R.explodeArray.length;
