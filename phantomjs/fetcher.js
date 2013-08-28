@@ -1,17 +1,17 @@
 ﻿
-var url_template = "http://www.baidu.com/s?ie=utf-8&bs=1&f=8&rsv_bp=1&rsv_spt=3&wd={0}&rsv_sug3=5&rsv_sug=0&rsv_sug1=4&rsv_sug4=69&inputT=958";
+var url_template = "http://www.jokeji.cn/list29_{0}.htm";
 var page_array = [];
 var task_array = [];
 var fs = require('fs');
 
-for (var i = 0; i < 100;i++){
+for (var i = 0; i < 10;i++){
     var page = require('webpage').create();
    
     page_array.push(page);
    
 }
 
-for (var j = 0; j < 1000000; j++) {
+for (var j = 1; j < 10000; j++) {
     var obj = {};
     obj.num = j;
     obj.url = url_template.replace("{0}", j);
@@ -19,22 +19,56 @@ for (var j = 0; j < 1000000; j++) {
 }
 
 function open(page,data) {
-    page.open(data.url, function (status) {
-        var result = page.evaluate(function (data) {
+    page.open(data.url, function (status) {});
 
-            var data = document.title;
-            return { "values": data }
-            
+    window.setTimeout(function(){
+
+        var result = page.evaluate(function (data) {
+            var r=false;
+            var xiaohua_li=document.querySelectorAll(".list_title li");
+            if (xiaohua_li.length) {
+                r = [];
+                for (var i = 0; i < xiaohua_li.length;i++) {
+                    
+                    var innerObj = {};
+                    var li = xiaohua_li[i];
+                    console.log(li);
+                    innerObj.src = "http://www.jokeji.cn/" + li.querySelector("a").getAttribute("href");
+                    innerObj.liulan = li.querySelector("span").innerText.replace("浏览：", "").replace("次", "");
+                    innerObj.date = li.querySelector("i").innerText;
+                    r.push(innerObj);
+                }
+            }
+            return r;
         }, data);
 
+         if (result) {
+            console.log(result+"!!!!!!!!!!!!!!!!!!!!!!");
+            fs.write("./xiaohua1/" + data.num + ".txt", JSON.stringify(result), 'w');
+            //page.render("file.png");
+            open(page, task_array.shift());
+        }else
+        {
+		    open(page, task_array[0]);
+           console.log(result+"####################################################################################################");
+        }
 
-  
-        fs.write("./" + data.num + ".txt", JSON.stringify(result), 'w');
-        page.render("file.png");
-        open(page, task_array.pop());
-        //Page is loaded!
-        //phantom.exit();
-    });
+
+
+
+
+
+
+
+    },10000);
+    
+
+
+
+
+
+
+
  
 
 }
@@ -44,8 +78,8 @@ function open(page,data) {
 
 
 for (var k in page_array) {
-  
-    open(page_array[k], task_array.pop());
+	
+    open(page_array[k], task_array.shift());
    
 
 }
