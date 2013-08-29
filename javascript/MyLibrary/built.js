@@ -1,1 +1,0 @@
-define("scripts/b",[],function(){return"我是B"}),define("a",["scripts/b"],function(e){return{b:e}}),require.config({paths:{a:"scripts/a"}}),require(["a"],function(e){console.log(e)}),define("main",function(){});
