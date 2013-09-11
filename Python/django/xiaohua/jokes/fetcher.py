@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 from datetime  import *
 import threading
 import json
-
+sys.setrecursionlimit(1500)
 list_contain=Jokes.objects.all()
 f=open("data",'r')
 strs=f.read()
@@ -45,7 +45,7 @@ def let_us_do_it(data):
 				insertJoke(data["src"],data["liulan"]);
 				print "add 1"
 			except Exception, e:
-				print "error"
+				print data["src"]	
 			else:
 				pass
 			finally:
@@ -59,9 +59,10 @@ def let_us_do_it(data):
 
 
 def insertJoke(url,popular):
+	
 	html=urllib.urlopen(url).read()
-	soup = BeautifulSoup(html)
-	title_bar=soup.find("a",title="查看此类型的所有笑话").find_parent().get_text()
+	soup = BeautifulSoup(html,from_encoding="gb18030")
+	title_bar=soup.select(".mob_left_b2")[0].find("h1").get_text()
 	title_bar_array=title_bar.split("->")
 	print str(soup.find("span",id="text110"))
 	j=Jokes(
@@ -74,17 +75,18 @@ def insertJoke(url,popular):
 		joke_popularity = popular,
 		joke_from_url = url
 		)
+		
 	j.save()
 
 
 
 
 
+let_us_do_it(list_array.pop())
 
-
-for x in xrange(1,50):
-	t=threading.Thread(target=let_us_do_it,args=(list_array.pop(),  )     )
-	t.start()
+# for x in xrange(1,2):
+# 	t=threading.Thread(target=let_us_do_it,args=(list_array.pop(),  )     )
+# 	t.start()
 
 
 
