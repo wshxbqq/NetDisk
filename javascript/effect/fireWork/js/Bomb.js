@@ -29,3 +29,4 @@ Bomb.prototype.draw = function () {
     g.drawImage(img, this.frame * 20, this.type * 20, 20, 20, -10, -10, 20 + this.frame * 2, 20 + this.frame * 2);
     g.restore()
 };
+

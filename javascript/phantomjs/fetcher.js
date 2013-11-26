@@ -1,4 +1,4 @@
-﻿
+
 var url_template = "http://www.jokeji.cn/list29_{0}.htm";
 var page_array = [];
 var task_array = [];
@@ -20,9 +20,7 @@ for (var j = 1; j < 10000; j++) {
 
 function open(page,data) {
     page.open(data.url, function (status) {});
-
     window.setTimeout(function(){
-
         var result = page.evaluate(function (data) {
             var r=false;
             var xiaohua_li=document.querySelectorAll(".list_title li");
@@ -49,11 +47,9 @@ function open(page,data) {
             open(page, task_array.shift());
         }else
         {
-		    open(page, task_array[0]);
+            open(page, task_array[0]);
            console.log(result+"####################################################################################################");
         }
-
-
 
 
 
