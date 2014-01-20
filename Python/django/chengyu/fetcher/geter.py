@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
-
-
 import os,sys
 reload(sys)  
 sys.setdefaultencoding('utf8') 
-
 sys.path.append("D:\\chengyu\\chengyu") 
 sys.path.append("D:\\chengyu") 
-
-
 from django.core.management import setup_environ
 import settings
 setup_environ(settings)

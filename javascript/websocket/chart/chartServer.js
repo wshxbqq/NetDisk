@@ -21,8 +21,8 @@ net.createServer(function(sock) {
 
         }
         catch(e){
-
-
+            var a={};
+            
         }
       
     });

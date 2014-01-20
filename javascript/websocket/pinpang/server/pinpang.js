@@ -110,7 +110,7 @@ function switchRoom(socket,room) {
 }
 
 
-//Ë¢ÐÂ ËùÓÐÍæ¼ÒµÄ  ¿ÕÏÐÍæ¼ÒÁÐ±í
+//Ë¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 function updateFreelayer() {
     var freeSockets = getSocketFromRoomId("free");
     for (var i in freeSockets) {

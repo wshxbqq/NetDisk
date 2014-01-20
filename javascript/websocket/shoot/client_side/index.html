@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+  
+    <link href="css.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="login">
+        <img src="img/2877_4401.png" />
+        <input  id="player_name"  placeholder="请填写你的角色名字"/>
+        <button  id="player_name_btn" style=" width:120px; height:50px;">开始游戏</button>
+
+    </div>
+
+    <div class="rect">
+        <div class="player_dashboard">
+            杀死：<a id="kill_count">0</a>----被杀:<a id="die_count">0</a>
+
+        </div>
+      
+    </div>
+
+    <div class="mark_layer">
+        <p></p>
+
+    </div>
+
+
+
+
+
+    <script src="underscore-min.js"></script>
+      <script src="jquery-1.7.2.js"></script>
+    <script src="dom.js"></script>
+     <script src="http://169.254.83.221:8888/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>

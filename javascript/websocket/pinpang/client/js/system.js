@@ -2,11 +2,9 @@
 var FRAME = 60;
 var FRAME_COUNT = 0;
 var SEND_FRAME = 30;
-<<<<<<< HEAD
+ 
 var SERVER = "10.130.134.0:8888";
-=======
-var SERVER = "169.254.90.201:8888";
->>>>>>> 3e5b172e154a3cee7df8fc6d2a22249bca82e637
+
 var ID = null;
 
 var mark_me = 0;
@@ -95,7 +93,7 @@ ST.nextBallPosition = function () {
 window.socket = io.connect(SERVER);
 
 socket.on('connect', function (connectMsg) {
-    dom.changeReadyTip(1); //¸ü»»±êÌâ   ÒÑÁ¬½Ó
+    dom.changeReadyTip(1); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     socket.emit("updateFreelayer");
 
 

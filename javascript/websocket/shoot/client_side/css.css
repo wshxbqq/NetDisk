@@ -1,0 +1,73 @@
+﻿.login {
+    width:1160px;
+    height:640px;
+    background:#ccc;
+    position:absolute;
+    z-index:10;
+    text-align:center;
+    line-height:640px
+
+}
+.rect {
+    width:960px;
+    height:640px;
+    background:#ccc;
+    position:relative;
+    float:left;
+}
+
+    .rect .player {
+        position:absolute;
+        width:50px;
+        height:50px;
+        background-image:url(img/mt.jpg);
+        background-size:contain;
+        top:0px;
+        left:0px;
+        color:red;
+        text-align:center;
+        font-size:large;
+        font-weight:bolder;
+        line-height:50px;
+
+
+
+    }
+
+.mark_layer {
+      width:200px;
+    height:640px;
+    background:#000;
+    position:relative;
+    float:left;
+    color:white;
+}
+
+.mark_layer p {
+    margin:5px;
+    
+
+}
+
+.player_dashboard {
+    width:200px;
+    background:#b6ff00;
+    height:30px;
+    position:absolute
+
+}
+
+.bulet {
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:green;
+    border-radius:5px;
+}
+.bulet1 {
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:red;
+     border-radius:5px;
+}
